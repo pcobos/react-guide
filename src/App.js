@@ -14,7 +14,9 @@ class App extends Component {
       // THis looks by HTML but it is actually JSX
       <div className="App">
         <h1>Obaaaa</h1>
-        <Person />
+        <Person name="Pedro" age="35" />
+        <Person name="Andres" age="37" />
+        <Person name="Isabela" age="36" />
       </div>
     );
     // return React.createElement('div', null, 'h1', 'I\'m the best')
