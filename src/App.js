@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// In the following line are importing a component
+import Person from './Person/Person.js';
+
 // This is the single component being rendered on index.js. All of the other components we will use go inside this one.
 class App extends Component {
   // This class (APP) has one method, the render one. Super Important, react will call this method to render something to the screen
@@ -11,8 +14,10 @@ class App extends Component {
       // THis looks by HTML but it is actually JSX
       <div className="App">
         <h1>Obaaaa</h1>
+        <Person />
       </div>
     );
+    // return React.createElement('div', null, 'h1', 'I\'m the best')
   }
 }
 
