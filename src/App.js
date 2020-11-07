@@ -18,7 +18,7 @@ class App extends Component {
 
   // By convention, is better to use the word Handler when declaring event handler functions (this functions are not tipically called but rather assigned)
   switchNameHandler = () => {
-    // Following method (setState) is a special one provided by react to update the "state" object
+    // Following method (setState) is a special one provided by react to update the "state" object. Notice that it will only update the stuff included inside, it will not touch the rest of the stuff in state (it simply merges it).
     this.setState({
       persons: [
         { name: "Pedro the immortal", age: 1000 },
