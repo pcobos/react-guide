@@ -58,11 +58,11 @@ import Person from './Person/Person.js';
  
     console.log(personsState, otherState);
 
-    const switchNameHandler = () => {
+    const switchNameHandler = (newName) => {
       setPersonsState({
         persons: [
           {name: "Papa pitufo", age:98},
-          {name: "Pitufina", age:65},
+          {name: newName, age:65},
           {name: "Pitufo Payaso", age:45}
         ]
       });
@@ -74,12 +74,12 @@ import Person from './Person/Person.js';
         <h1>Obaaaa</h1>
         <h2>This is really working</h2>
         {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
-        <button onClick={switchNameHandler}>Switch name</button>
+        <button onClick={switchNameHandler.bind(this, 'Pedropolis')}>Switch name</button>
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
         <Person 
           name={personsState.persons[0].name} 
           age={personsState.persons[0].age}
-          click={switchNameHandler} />
+          click={switchNameHandler.bind(this, "Yo mama")} />
         <Person name={personsState.persons[1].name} age={personsState.persons[1].age} />
         <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
         {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
