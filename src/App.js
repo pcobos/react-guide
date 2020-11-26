@@ -76,7 +76,10 @@ import Person from './Person/Person.js';
         {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
         <button onClick={switchNameHandler}>Switch name</button>
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
-        <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
+        <Person 
+          name={personsState.persons[0].name} 
+          age={personsState.persons[0].age}
+          click={switchNameHandler} />
         <Person name={personsState.persons[1].name} age={personsState.persons[1].age} />
         <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
         {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
