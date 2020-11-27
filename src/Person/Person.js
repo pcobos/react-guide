@@ -7,7 +7,7 @@ const person = (props) => {
       {/* children property is a reserved word for displaying the stuff inside the element tags when calling our component on the App class */}
       <p>{props.children}</p>
       {/* We will insert an input field to demonstrate how two way binding works */}
-      <input onChange={}/>
+      <input type="text" onChange={props.changed}/>
     </div>
     )
   };

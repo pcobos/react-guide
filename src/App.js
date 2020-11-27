@@ -1,6 +1,7 @@
 // Notice how the APP class inherits from the COMPONENT Class, imported from the react library
-import React, { useState } from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import person from './Person/Person.js';
 
 // In the following line are importing a component
 import Person from './Person/Person.js';
@@ -77,37 +78,56 @@ class App extends Component {
   switchNameHandler = () => {
     // Following method (setState) is a special one provided by react to update the "state" object. Notice that it will only update the stuff included inside, it will not touch the rest of the stuff in state (it simply merges it).
     this.setState({
-        persons: [
-            { name: "Pedro the immortal", age: 1000 },
-            { name: "Thaliooo", age: 32 },
-            { name: "Gaby", age: 36 }
-          ]
-        })
+      persons: [
+          { name: "Pedro the immortal", age: 1000 },
+          { name: "Thaliooo", age: 32 },
+          { name: "Gaby", age: 36 }
+        ]
       }
-          // This class (APP) has one method, the render one. Super Important, react will call this method to render something to the screen
-          // Important to remember that something always (HTML) needs to be rendered to the screen.
+    )
+  }
+    
+  changedNameHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: "Pedro the immortal", age: 1000 },
+        { name: event.target.value, age: 32 },
+        { name: "Gaby", age: 36 }
+      ]
+      }
+    )
+  }
+  
+    
+      // This class (APP) has one method, the render one. Super Important, react will call this method render something to the screen
+    // Important to remember that something always (HTML) needs to be rendered to the screen.
 
-    render() { 
-      return(
-        <div className="App">
-          <h1>Obaaaa</h1>
-          <h2>This is really working</h2>
-          {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
-          <button onClick={switchNameHandler.bind(this, 'Pedropolis')}>Switch name</button>
-          {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
-          <Person 
-            name={personsState.persons[0].name} 
-            age={personsState.persons[0].age}
-            click={switchNameHandler.bind(this, "Yo mama")} />
-          <Person name={personsState.persons[1].name} age={personsState.persons[1].age} />
-          <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
-          {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
-          <Person name="Andres" age="37" />
-          <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
-        </div>
-      );
-    }
-  };
+  render() { 
+    return(
+      <div className="App">
+        <h1>Obaaaa</h1>
+        <h2>This is really working</h2>
+        {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
+        <button onClick={this.switchNameHandler}>Switch name</button>
+        {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click={this.switchNameHandler} />
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age} 
+          changed={this.changedNameHandler}/>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age} />
+        {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
+        <Person name="Andres" age="37" />
+        <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
+      </div>
+    );
+  }
+};
 
 // This class is then exported to the index.js file, which renders it
-export default app;
+export default App;
