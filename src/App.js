@@ -1,7 +1,7 @@
 // Notice how the APP class inherits from the COMPONENT Class, imported from the react library
 import React, {Component} from 'react';
 import './App.css';
-import person from './Person/Person.js';
+// import person from './Person/Person.js';
 
 // In the following line are importing a component
 import Person from './Person/Person.js';
@@ -98,17 +98,28 @@ class App extends Component {
     )
   }
   
+ 
     
       // This class (APP) has one method, the render one. Super Important, react will call this method render something to the screen
     // Important to remember that something always (HTML) needs to be rendered to the screen.
 
   render() { 
+    
+    // Inline styling example - Notice that the different syntax with regular css (this is a JS object)
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      padding: '8px'
+    };
+
     return(
       <div className="App">
         <h1>Obaaaa</h1>
         <h2>This is really working</h2>
         {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
-        <button onClick={this.switchNameHandler}>Switch name</button>
+        <button 
+          style={style} // Inline styling example, we passed out style object inside it
+          onClick={this.switchNameHandler}>Switch name</button>
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
         <Person 
           name={this.state.persons[0].name} 
