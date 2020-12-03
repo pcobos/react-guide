@@ -1,6 +1,11 @@
 /* Remember that these files are global, they don't automatically belong to the component with the same name */
 
 /* Therefore, it is good practice to add class to our component that matches the one here (could be the same name as the component) so that we don't use this css by mistake somewhere else */
+
+/* Finally, don't forget to import the file on your component, otherwise the code here won't word */
+
 .Person {
   border: 1px solid;
+  padding: 8px;
+  margin-bottom: 4px;
 }
