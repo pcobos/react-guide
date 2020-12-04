@@ -6,6 +6,7 @@ import './App.css';
 // In the following line are importing a component
 import Person from './Person/Person.js';
 import UserInput from './UserInput/UserInput.js';
+import UserOutput from './UserOutput/UserOutput.js';
 
 // This is the single component being rendered on index.js. All of the other components we will use go inside this one.
           
@@ -138,6 +139,7 @@ class App extends Component {
         <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
 
         <UserInput />
+        <UserOutput />
       </div>
     );
   }
