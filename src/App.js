@@ -139,7 +139,10 @@ class App extends Component {
         <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
 
         <UserInput />
-        <UserOutput />
+        <UserOutput username="pcobos" />
+        <UserOutput username="ddraper" />
+        <UserOutput username="tshelby" />
+        <UserOutput username="czingano" />
       </div>
     );
   }

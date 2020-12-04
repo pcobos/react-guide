@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
-export const UserOutput = (props) => {
+const UserOutput = (props) => {
+
   return(
     <div>
-      <h1>This is my user output</h1>
+      <p>This is my {props.username}</p>
+      <p>This is my {props.username}</p>
     </div>
   )
 };
+
+export default UserOutput;

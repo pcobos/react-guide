@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-export const UserInput = (props) => {
-
+const UserInput = () => {
   return (
     <div>
       <h1>This is my User Input component</h1>
@@ -9,4 +8,4 @@ export const UserInput = (props) => {
     </div>
   )
 };
-
+export default UserInput;
