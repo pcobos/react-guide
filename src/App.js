@@ -92,7 +92,7 @@ class App extends Component {
   changedNameHandler = (event) => {
     this.setState({
       persons: [
-        { name: "Pedro the immortal", age: 1000 },
+        { name: "Pedro", age: 1000 },
         { name: event.target.value, age: 32 },
         { name: "Gaby", age: 36 }
       ]
@@ -142,7 +142,7 @@ class App extends Component {
         <UserOutput username="pcobos" />
         <UserOutput username="ddraper" />
         <UserOutput username="tshelby" />
-        <UserOutput username="czingano" />
+        <UserOutput username="czingano " />
       </div>
     );
   }
