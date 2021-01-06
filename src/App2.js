@@ -12,13 +12,19 @@ class App2 extends Component {
   }
 
   switchSuperpowerHandler = () => {
-
+    this.setState({
+      superheroes: [
+        {username: "Pedro", superpower: "healing factor"},
+        {username: "Agathe", superpower: "Super speed"},
+        {username: "Sofia", superpower: "Invisibility"}
+      ]
+    }) 
   }
 
   render(){
     return(
       <div>
-        <UserInput />
+        <UserInput change={this.switchSuperpowerHandler}/>
         <UserOutput username={this.state.superheroes[0].username} superpower={this.state.superheroes[0].superpower}/>
         <UserOutput username={this.state.superheroes[1].username} superpower={this.state.superheroes[1].superpower}/>
         <UserOutput username={this.state.superheroes[2].username} superpower={this.state.superheroes[2].superpower}/>
