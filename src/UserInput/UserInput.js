@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const UserInput = () => {
+const UserInput = (props) => {
   return (
     <div>
       <h1>This is my User Input component</h1>
-      <input type="text"/>
+      <input type="text" onChange={props.change} value={props.username}/>
     </div>
   )
 };

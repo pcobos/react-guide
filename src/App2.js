@@ -11,10 +11,10 @@ class App2 extends Component {
     ]
   }
 
-  switchSuperpowerHandler = () => {
+  switchSuperpowerHandler = (event) => {
     this.setState({
       superheroes: [
-        {username: "Pedro", superpower: "healing factor"},
+        {username: event.target.value, superpower: "healing factor"},
         {username: "Agathe", superpower: "Super speed"},
         {username: "Sofia", superpower: "Invisibility"}
       ]
