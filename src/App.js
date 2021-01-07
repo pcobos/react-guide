@@ -80,17 +80,11 @@ class App extends Component {
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
         {this.state.showPersons !== false && 
           <div>
-            <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age}
-              click={this.switchNameHandler} />
-            <Person 
-              name={this.state.persons[1].name} 
-              age={this.state.persons[1].age} 
-              changed={this.changedNameHandler}/>
-            <Person 
-              name={this.state.persons[2].name} 
-              age={this.state.persons[2].age} />
+            {this.state.persons.map(person =>{
+              return <Person 
+              name={person.name} 
+              age={person.age} />
+            })}
           </div>
         }
         {/* Following two components are built using props, props normally come from outside, similar to function arguments */}

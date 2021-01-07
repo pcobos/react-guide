@@ -56,18 +56,12 @@ const app = (props) => {
       <Person name={personsState.persons[1].name} age={personsState.persons[1].age} />
       <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
       {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
-      {(()=> {
-        if (otherState.showPersons) {
-          return (
-            <div>
-              <Person name="Andres" age="37" />
-              <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })()}
+      {otherState.showPersons &&
+        <div>
+          <Person name="Andres" age="37" />
+          <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
+        </div>
+      }
     </div>
   );
     // return React.createElement('div', null, 'h1', 'I\'m the best')
