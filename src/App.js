@@ -7,55 +7,6 @@ import './App.css';
 import Person from './Person/Person.js';
 
 // This is the single component being rendered on index.js. All of the other components we will use go inside this one.
-          
-// ------ Functional Component using hooks -----------
-
-// const app = (props) => {
-//   const [personsState, setPersonsState] =  useState({
-//     persons: [
-//       {name: "Gargamel", age:98},
-//       {name: "Pitufina", age:65},
-//       {name: "Pitufo Payaso", age:45}
-//     ],
-//   });
-
-//     // we could also use "useState" again to set another state instead of manually adding it to the new state.
-
-//   const [otherState, setOtherState] = useState('Some other value');
- 
-//   console.log(personsState, otherState);
-
-//   const switchNameHandler = (newName) => {
-//     setPersonsState({
-//       persons: [
-//         {name: "Papa pitufo", age:98},
-//         {name: newName, age:65},
-//         {name: "Pitufo Payaso", age:45}
-//       ]
-//     });
-//   };
-
-//   return (
-//     // THis looks by HTML but it is actually JSX
-//     <div className="App">
-//       <h1>Obaaaa</h1>
-//       <h2>This is really working</h2>
-//       {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
-//       <button onClick={switchNameHandler.bind(this, 'Pedropolis')}>Switch name</button>
-//       {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
-//       <Person 
-//         name={personsState.persons[0].name} 
-//         age={personsState.persons[0].age}
-//         click={switchNameHandler.bind(this, "Yo mama")} />
-//       <Person name={personsState.persons[1].name} age={personsState.persons[1].age} />
-//       <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
-//       {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
-//       <Person name="Andres" age="37" />
-//       <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
-//     </div>
-//   );
-//     // return React.createElement('div', null, 'h1', 'I\'m the best')
-// }
 
 // ----------------------- Class Based Component --------
 
@@ -70,8 +21,9 @@ class App extends Component {
         { name: "Pedro", age: 35 },
         { name: "Thalia", age: 32 },
         { name: "Gaby", age: 36 }
-      ]
-    }
+      ],
+    showPersons: false
+  }
     
     // By convention, is better to use the word Handler when declaring event handler functions (this functions are not tipically called but rather assigned)
     
@@ -96,12 +48,16 @@ class App extends Component {
       ]
       }
     )
+  } 
+
+  togglePersonsHandler = () => {
+    this.setState({
+      showPersons: true
+    })
   }
-  
- 
-    
-      // This class (APP) has one method, the render one. Super Important, react will call this method render something to the screen
-    // Important to remember that something always (HTML) needs to be rendered to the screen.
+  // This class (APP) has one method, the render one. Super Important, react will call this method render something to the screen
+
+  // Important to remember that something always (HTML) needs to be rendered to the screen.
 
   render() { 
     
@@ -119,19 +75,23 @@ class App extends Component {
         {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
         <button 
           style={style} // Inline styling example, we passed out style object inside it
-          onClick={this.switchNameHandler}>Switch name</button>
+          onClick={this.togglePersonsHandler}>Switch name</button>
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}
-          click={this.switchNameHandler} />
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age} 
-          changed={this.changedNameHandler}/>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age} />
+        {this.state.showPersons !== false && 
+          <div>
+            <Person 
+              name={this.state.persons[0].name} 
+              age={this.state.persons[0].age}
+              click={this.switchNameHandler} />
+            <Person 
+              name={this.state.persons[1].name} 
+              age={this.state.persons[1].age} 
+              changed={this.changedNameHandler}/>
+            <Person 
+              name={this.state.persons[2].name} 
+              age={this.state.persons[2].age} />
+          </div>
+        }
         {/* Following two components are built using props, props normally come from outside, similar to function arguments */}
         <Person name="Andres" age="37" />
         <Person name="Isabela" age="36" >This if the stuff displayed by props.children </Person>
