@@ -51,9 +51,10 @@ class App extends Component {
   } 
 
   togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
     this.setState({
-      showPersons: true
-    })
+      showPersons: !doesShow
+    });
   }
   // This class (APP) has one method, the render one. Super Important, react will call this method render something to the screen
 
