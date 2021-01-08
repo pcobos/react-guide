@@ -38,7 +38,13 @@ class App extends Component {
       }
     )
   }
-    
+
+  removePersonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState(persons);
+  }
+  
   changedNameHandler = (event) => {
     this.setState({
       persons: [
@@ -80,8 +86,9 @@ class App extends Component {
         {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
         {this.state.showPersons !== false && 
           <div>
-            {this.state.persons.map(person =>{
-              return <Person 
+            {this.state.persons.map((person, index) =>{
+              return <Person
+              click={() => this.removePersonHandler(index)}
               name={person.name} 
               age={person.age} />
             })}
