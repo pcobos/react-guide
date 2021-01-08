@@ -34,11 +34,30 @@ const app = (props) => {
     });
   };
 
+  const removePersonHandler = (personIndex) => {
+    const persons = [...personsState.persons];
+    persons.splice(personIndex, 1);
+    setPersonsState(persons);
+  }
+
   const togglePersonsHandler = () => {
     const doesShow = otherState.showPersons;
     setOtherState({
       showPersons: !doesShow
     });
+  }
+
+  let personList;
+  if (personsState.persons) {
+    personList = personsState.persons.map((person, index) => 
+    <Person
+        click={() => removePersonHandler(index)}
+        name={person.name}
+        age={person.age}
+        />
+    );
+  } else {
+    personList = <Person name="Man with no name" age="37" />
   }
 
   return (
@@ -49,13 +68,8 @@ const app = (props) => {
       {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
       <button onClick={togglePersonsHandler}>Switch name</button>
       {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
-
-      {personsState.persons.map(person => {
-        return <Person 
-          name={person.name}
-          age={person.age}
-          />
-      })}
+      
+      {personList}
       
       <Person 
         name={personsState.persons[0].name} 

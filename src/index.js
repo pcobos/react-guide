@@ -8,5 +8,5 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 // This where we render the "App" component that will in turn render all of the other components.
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<AppFunct />, document.getElementById('root'));
 registerServiceWorker();
