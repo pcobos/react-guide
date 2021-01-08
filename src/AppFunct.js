@@ -49,6 +49,14 @@ const app = (props) => {
       {/* On the following component we added an event listener (onClick). Notice that the syntax for JSX is different to normal JS (onclick). Once we declared the event, we assign as a Value the code that we want to be executed (eventName={codetobeexecuted}) */}
       <button onClick={togglePersonsHandler}>Switch name</button>
       {/*First three components are built using state. When state changes, it will prompt the DOM to rerender the component */}
+
+      {personsState.persons.map(person => {
+        return <Person 
+          name={person.name}
+          age={person.age}
+          />
+      })}
+      
       <Person 
         name={personsState.persons[0].name} 
         age={personsState.persons[0].age}
